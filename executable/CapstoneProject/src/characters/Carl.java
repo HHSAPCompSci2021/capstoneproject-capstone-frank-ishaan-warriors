@@ -19,12 +19,6 @@ public class Carl extends Sprite
 		xVel = 0;
 		yVel = 0;
 	}
-	public void walk(int dir) {
-		
-	}
-	
-	public class Mario extends Sprite {
-
 			// METHODS
 		public void walk(int dir) {
 			
@@ -47,6 +41,15 @@ public class Carl extends Sprite
 				}
 			}
 			
+		}
+		public void moveX(int moveBy)
+		{
+			carlX += moveBy;
+		}
+		
+		public void moveY(int moveBy)
+		{
+			carlY +=moveBy;
 		}
 
 }
