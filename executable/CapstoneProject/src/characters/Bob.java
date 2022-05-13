@@ -1,6 +1,6 @@
 package characters;
 
-public class Bob extends Character
+public class Bob extends Sprite
 {
 	
 }

@@ -1,6 +1,6 @@
 package characters;
 
-public class Carl extends Character
+public class Carl extends Sprite
 {
 
 	public Carl(double health, double damage, int defensePow, int attackPow) {

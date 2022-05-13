@@ -1,12 +1,7 @@
 package screens;
-
-
-
 import java.awt.Point;
 import java.awt.Rectangle;
-
-import core.DrawingSurface;
-
+import main.DrawingSurface;
 
 public class StartingScreen extends Screen {
 	private DrawingSurface surface;

@@ -1,13 +1,15 @@
 package characters;
 
-public abstract class Character
+import java.awt.geom.Rectangle2D;
+
+public abstract class Sprite extends Rectangle2D.Double
 {
 	private double health;
 	private double damage;
 	private int attackPow;
 	private int defensePow;
 	
-	public Character(double health, double damage, int defensePow, int attackPow)
+	public Sprite(double health, double damage, int defensePow, int attackPow)
 	{
 		this.health = health;
 		this.attackPow = attackPow;
@@ -44,3 +46,4 @@ public abstract class Character
 	}
 	
 }
+
