@@ -2,6 +2,8 @@ package characters;
 
 import java.awt.geom.Rectangle2D;
 
+import processing.core.PImage;
+
 public abstract class Sprite extends Rectangle2D.Double
 {
 	private double health;
@@ -9,13 +11,28 @@ public abstract class Sprite extends Rectangle2D.Double
 	private int attackPow;
 	private int defensePow;
 	
-	public Sprite(double health, double damage, int defensePow, int attackPow)
-	{
-		this.health = health;
-		this.attackPow = attackPow;
-		this.defensePow = defensePow;
-		this.damage = damage;
-	}
+	
+	// FIELDS
+		private PImage image;
+		
+		// CONSTRUCTORS
+		
+		public Sprite(int x, int y, int w, int h) {
+			this(null, x, y, w, h);
+		}
+		
+		public Sprite(PImage img, int x, int y, int w, int h) {
+			super(x,y,w,h);
+			image = img;
+		}
+		
+//	public Sprite(double health, double damage, int defensePow, int attackPow)
+//	{
+//		this.health = health;
+//		this.attackPow = attackPow;
+//		this.defensePow = defensePow;
+//		this.damage = damage;
+//	}
 	
 	public void doDamage() {
 		damage -= 5;
