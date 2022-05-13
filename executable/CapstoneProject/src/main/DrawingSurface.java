@@ -30,8 +30,8 @@ public float ratioX, ratioY;
 		StartingScreen screen1 = new StartingScreen(this);
 		screens.add(screen1);
 		
-		Map screen2 = new Map(this);
-		screens.add(screen2);
+//		Map screen2 = new Map(this);
+//		screens.add(screen2);
 		
 		activeScreen = screens.get(0);
 	}
