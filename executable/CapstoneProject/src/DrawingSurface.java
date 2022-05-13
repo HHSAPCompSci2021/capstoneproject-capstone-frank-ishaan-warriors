@@ -1,7 +1,8 @@
 import processing.core.PApplet;
 import processing.event.MouseEvent;
+import screens.ScreenSwitcher;
 
-public class DrawingSurface extends PApplet
+public class DrawingSurface extends PApplet implements ScreenSwitcher
 {
 	public void mouseReleased() 
 	{
@@ -46,6 +47,9 @@ public class DrawingSurface extends PApplet
 //			}
 //		}
 
+	}
+	public void switchScreen(int i) {
+		activeScreen = screens.get(i);
 	}
 
 }
