@@ -35,7 +35,7 @@ public abstract class Sprite extends Rectangle2D.Double
 //	}
 	
 	public void doDamage() {
-		
+		damage -= 5;
 	}
 	 public double getHealth()
 	 {
