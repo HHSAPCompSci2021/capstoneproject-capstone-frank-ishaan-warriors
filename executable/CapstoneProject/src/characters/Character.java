@@ -7,6 +7,14 @@ public abstract class Character
 	private int attackPow;
 	private int defensePow;
 	
+	public Character(double health, double damage, int defensePow, int attackPow)
+	{
+		this.health = health;
+		this.attackPow = attackPow;
+		this.defensePow = defensePow;
+		this.damage = damage;
+	}
+	
 	public void doDamage() {
 		
 	}
@@ -23,6 +31,16 @@ public abstract class Character
 	}
 	public int getDefensePow() {
 		return defensePow;
+	}
+	
+	public void moveX(int moveBy)
+	{
+		
+	}
+	
+	public void moveY(int moveBy)
+	{
+		
 	}
 	
 }
