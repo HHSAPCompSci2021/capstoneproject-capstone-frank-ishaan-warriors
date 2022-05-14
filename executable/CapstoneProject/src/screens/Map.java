@@ -1,5 +1,6 @@
 package screens;
 import main.*;
+import processing.core.PImage;
 
 import java.awt.Rectangle;
 import java.util.List;
@@ -31,35 +32,11 @@ public class Map extends Screen
 		// sequence and after the last line is read, the first 
 		// line is executed again.
 		public void draw() {
-			
-			// drawing stuff
-			
-			surface.background(0,255,255);   
-
-		//	for (Sprite s : obstacles) {
-//				s.draw(surface);
-			//}
-
-		//	mario.draw(surface);
-
-			
-			// modifying stuff
-
-		/*	if (surface.isPressed(KeyEvent.VK_ESCAPE)) {
-				surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
-				return;
-			}
-			if (surface.isPressed(KeyEvent.VK_LEFT))
-				mario.walk(-1);
-			if (surface.isPressed(KeyEvent.VK_RIGHT))
-				mario.walk(1);
-			if (surface.isPressed(KeyEvent.VK_UP))
-				mario.jump();
-
-			mario.act(obstacles);
-
-			if (!screenRect.intersects(mario))
-				spawnNewMario();*/
+			PImage img;
+			img = surface.loadImage("image/a.jpg");
+			img.resize(surface.width,surface.height);
+			surface.background(img);
+			// drawing stuff   
 
 		}
 
