@@ -37,17 +37,33 @@ public abstract class Sprite extends Rectangle2D.Double
 	public void doDamage() {
 		
 	}
+	/** 
+	 * 
+	 * @return health of the sprite
+	 */
 	 public double getHealth()
 	 {
 		 return health;
 	 }
+	 /** 
+		 * 
+		 * @return damage of the sprite
+		 */
 	 public double getDamage()
 	 {
 		 return health;
 	 }
+	 /** 
+		 * 
+		 * @return attack power of the sprite
+		 */
 	public int getAttackPow() {
 		return attackPow;
 	}
+	/** 
+	 * 
+	 * @return defense power of the sprite
+	 */
 	public int getDefensePow() {
 		return defensePow;
 	}

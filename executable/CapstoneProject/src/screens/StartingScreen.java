@@ -19,9 +19,10 @@ public class StartingScreen extends Screen {
 	public void draw() {
 		String name = "ECLIPSE WARRIORS";
 		surface.background(255,255,255);
+		surface.fill(0);
+
 		surface.text(name, 200,50);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-		surface.fill(0);
 		String str = "Click me!";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);

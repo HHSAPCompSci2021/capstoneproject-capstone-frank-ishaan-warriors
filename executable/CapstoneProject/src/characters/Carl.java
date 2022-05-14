@@ -13,9 +13,10 @@ public class Carl extends Sprite
 
 	private double xVel, yVel;
 	public Carl(PImage img, int x, int y) {
+		super(img,carlX,carY CARL_WIDTH, CARL_HEIGHT);
+
 		carlY = y;
 		carlX = x;
-		super(img, carl, y, CARL_WIDTH, CARL_HEIGHT);
 		xVel = 0;
 		yVel = 0;
 	}
