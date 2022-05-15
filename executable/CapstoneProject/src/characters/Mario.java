@@ -28,7 +28,7 @@ public class Mario extends Sprite {
 	}
 
 	public void act(List<Sprite> obstacles) {
-		yVel += 0.2;
+	//	yVel += 0.2;
 		
 		x += xVel;
 		y += yVel;
@@ -40,6 +40,7 @@ public class Mario extends Sprite {
 			}
 		}
 		
+
 	}
 
 

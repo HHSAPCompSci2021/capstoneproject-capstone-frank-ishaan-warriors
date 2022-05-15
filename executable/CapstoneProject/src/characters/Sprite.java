@@ -93,9 +93,11 @@ public class Sprite extends Rectangle2D.Double
 	
 	
 	// METHODS	
-	public void moveToLocation(double x, double y) {
-		super.x = x;
-		super.y = y;
+	public void moveToLocation(double x1, double y1) {
+		//super.x = x;
+		//super.y = y;
+		x=x1;
+		y=y1;
 	}
 	
 	public void moveByAmount(double x, double y) {
@@ -118,6 +120,31 @@ public class Sprite extends Rectangle2D.Double
 			g.fill(100);
 			g.rect((float)x,(float)y,(float)width,(float)height);
 		}
+	}
+	
+	public void up() {
+		moveByAmount(0, -15);
+	}
+	
+	public void down() {
+		moveByAmount(0, 15);
+	}
+	
+	public void right() {
+		moveByAmount(15, 0);
+	}
+
+	public void left() {
+		moveByAmount(-15, 0);
+	}
+	
+	public void special(PApplet surface) {
+		image = surface.loadImage("image/sad.jpg");
+		long a = System.currentTimeMillis();
+		while (System.currentTimeMillis()< a + 5000) {
+			
+		}
+		image = surface.loadImage("image/big3.jpg");
 	}
 }
 
