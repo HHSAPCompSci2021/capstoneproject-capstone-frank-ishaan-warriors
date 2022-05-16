@@ -4,10 +4,8 @@ import java.awt.*;
 
 import processing.core.PApplet;
 import processing.event.MouseEvent;
-import screens.StartingScreen;
-import screens.Screen;
-import screens.ScreenSwitcher;
-import screens.Map;
+import screens.*;
+
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher
 {
@@ -30,16 +28,11 @@ public float ratioX, ratioY;
 		StartingScreen screen1 = new StartingScreen(this);
 		screens.add(screen1);
 		
-		Map screen2 = new Map(this);
+		Instruction screen2 = new Instruction(this);
 		screens.add(screen2);
 		
-//<<<<<<< HEAD
-	//	Map screen2 = new Map(this);
-		//screens.add(screen2);
-//=======
-//		Map screen2 = new Map(this);
-//		screens.add(screen2);
-//>>>>>>> 42807118ca0b31c89a1ac9ccac6b2c88cce2beba
+		Map screen3 = new Map(this);
+		screens.add(screen3);
 		
 		activeScreen = screens.get(0);
 	}

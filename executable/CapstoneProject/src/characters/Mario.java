@@ -3,6 +3,7 @@ package characters;
 
 import java.util.List;
 
+import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Mario extends Sprite {
@@ -21,10 +22,15 @@ public class Mario extends Sprite {
 	// METHODS
 	public void walk(int dir) {
 		
-	}
+	} 
 
 	public void jump() {
 		
+	}
+	
+	public void special(PApplet surface) {
+		specialImgName = "image/sad.jpg";
+		super.special(surface);
 	}
 
 	public void act(List<Sprite> obstacles) {

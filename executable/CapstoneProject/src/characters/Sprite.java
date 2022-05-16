@@ -79,6 +79,8 @@ public class Sprite extends Rectangle2D.Double
 		
 	}*/
 	private PImage image;
+	String specialImgName;
+	int use = 3;
 	
 	// CONSTRUCTORS
 	
@@ -139,12 +141,15 @@ public class Sprite extends Rectangle2D.Double
 	}
 	
 	public void special(PApplet surface) {
-		image = surface.loadImage("image/sad.jpg");
-		long a = System.currentTimeMillis();
-		while (System.currentTimeMillis()< a + 5000) {
-			
-		}
-		image = surface.loadImage("image/big3.jpg");
+		image = surface.loadImage(specialImgName);
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
 	}
 }
 

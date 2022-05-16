@@ -3,6 +3,7 @@ package characters;
 
 import java.util.List;
 
+import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Bob extends Sprite {
@@ -42,6 +43,9 @@ public class Bob extends Sprite {
 		
 	}
 
-
+	public void special(PApplet surface) {
+		specialImgName = "image/angry.jpg";
+		super.special(surface);
+	}
 
 }

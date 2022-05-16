@@ -17,26 +17,30 @@ public class Map extends Screen
 		private Mario a;
 		private Bob b;
 		private List<Sprite> obstacles;
+		private int aTime = 0, bTime = 0;
+		private boolean aSpecial = false, bSpecial = false;
+		private int aUse = 3, bUse = 3;
 
 		public Map(DrawingSurface surface) {
 			super(2000, 2000);
 			this.surface = surface;
 			screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
 			obstacles = new ArrayList<Sprite>();
-		//	a = new Mario(surface.loadImage("image/big3.jpg"),100,250);
-		//	b = new Bob(surface.loadImage("image/pigs.png"), 500, 250);
 		}
 
-		public void spawnNewMario() {
-			b = new Bob(surface.loadImage("image/pigs.png"), 500, 250);
-			a = new Mario(surface.loadImage("image/mario.png"), 100,250);
+		public void spawnNewBob(int x, int y) {
+			b = new Bob(surface.loadImage("image/pigs.png"),x,y);
+		}
+		
+		public void spawnNewMario(int x, int y) {
+			a = new Mario(surface.loadImage("image/big3.jpg"),x,y);
 		}
 
 		// The statements in the setup() function 
 		// execute once when the program begins
 		public void setup() {
-			spawnNewMario();
-			System.out.println("setup OK");
+			spawnNewMario(500, 250);
+			spawnNewBob(100, 250);
 		}
 
 		// The statements in draw() are executed until the 
@@ -50,11 +54,27 @@ public class Map extends Screen
 			surface.background(img);
 			// drawing stuff
 			if (a == null) {
-				a = new Mario(surface.loadImage("image/big3.jpg"),100,250);
+				spawnNewMario(500, 250);
 		    }
 			if (b == null) {
-				b = new Bob(surface.loadImage("image/pigs.png"), 500, 250);
-			}	
+				spawnNewBob(100, 250);
+			}		
+			if (aSpecial) {
+			    aTime++;
+			    if (aTime == 125) {
+			    	spawnNewMario((int)a.getX(), (int)a.getY());
+			    	aSpecial = false;
+			    	aUse--;
+			    }
+			}
+			if (bSpecial) {
+			    bTime++;
+			    if (bTime == 125) {
+			    	spawnNewBob((int)b.getX(), (int)b.getY());
+			    	bSpecial = false;
+			    	bUse--;
+			    }
+			}
 			a.draw(surface);
 			b.draw(surface);
 			
@@ -84,11 +104,16 @@ public class Map extends Screen
 				a.right();
 			}
 			
-			if (surface.isPressed(KeyEvent.VK_E)) {
+			if (surface.isPressed(KeyEvent.VK_E) && !aSpecial && aUse > 0) {
 				a.special(surface);
+				aTime = 0;
+				aSpecial = true;
+			}
+			
+			if (surface.isPressed(KeyEvent.VK_SHIFT) && !bSpecial && bUse > 0) {
+				b.special(surface);
+				bTime = 0;
+				bSpecial = true;
 			}
 		}
-
-		
-
 }
