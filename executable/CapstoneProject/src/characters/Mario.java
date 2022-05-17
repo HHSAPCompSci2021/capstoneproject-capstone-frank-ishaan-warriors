@@ -21,14 +21,6 @@ public class Mario extends Sprite {
 	}
 
 	// METHODS
-	public void walk(int dir) {
-		
-	} 
-
-	public void jump() {
-		
-	}
-	
 	public void special(PApplet surface) {
 		specialImgName = "image/sad.jpg";
 		super.special(surface);

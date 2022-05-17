@@ -7,7 +7,6 @@ import processing.core.PImage;
 
 public class Sprite extends Rectangle2D.Double
 {
-	
 	private PImage image;
 	protected int health;
 	protected String specialImgName;
@@ -28,8 +27,7 @@ public class Sprite extends Rectangle2D.Double
 	
 	// METHODS	
 	public void moveToLocation(double x1, double y1) {
-		//super.x = x;
-		//super.y = y;
+
 		x=x1;
 		y=y1;
 	}
