@@ -1,6 +1,7 @@
 package characters;
 
 
+import java.awt.geom.Rectangle2D;
 import java.util.List;
 
 import processing.core.PApplet;
@@ -13,8 +14,8 @@ public class Mario extends Sprite {
 
 	private double xVel, yVel;
 
-	public Mario(PImage img, int x, int y) {
-		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT);
+	public Mario(PImage img, int x, int y, int health) {
+		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT, health);
 		xVel = 0;
 		yVel = 0;
 	}

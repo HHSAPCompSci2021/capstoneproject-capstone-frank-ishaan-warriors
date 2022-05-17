@@ -13,8 +13,8 @@ public class Bob extends Sprite {
 
 	private double xVel, yVel;
 
-	public Bob(PImage img, int x, int y) {
-		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT);
+	public Bob(PImage img, int x, int y, int health) {
+		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT, health);
 		xVel = 0;
 		yVel = 0;
 	}

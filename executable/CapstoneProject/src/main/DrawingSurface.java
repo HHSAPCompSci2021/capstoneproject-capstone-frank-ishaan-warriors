@@ -34,6 +34,12 @@ public float ratioX, ratioY;
 		Map screen3 = new Map(this);
 		screens.add(screen3);
 		
+		EndScreen screen4 = new EndScreen(this, true);
+		screens.add(screen4);
+		
+		EndScreen screen5 = new EndScreen(this, false);
+		screens.add(screen5);
+		
 		activeScreen = screens.get(0);
 	}
 	public void switchScreen(int i) {

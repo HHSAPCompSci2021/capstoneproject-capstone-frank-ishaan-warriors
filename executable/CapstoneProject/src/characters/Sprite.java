@@ -79,18 +79,20 @@ public class Sprite extends Rectangle2D.Double
 		
 	}*/
 	private PImage image;
-	String specialImgName;
-	int use = 3;
+	protected int health;
+	protected String specialImgName;
+	protected int use = 3;
 	
 	// CONSTRUCTORS
 	
-	public Sprite(int x, int y, int w, int h) {
-		this(null, x, y, w, h);
+	public Sprite(int x, int y, int w, int h, int health) {
+		this(null, x, y, w, h, health);
 	}
 	
-	public Sprite(PImage img, int x, int y, int w, int h) {
+	public Sprite(PImage img, int x, int y, int w, int h, int health) {
 		super(x,y,w,h);
 		image = img;
+		this.health = health;
 	}
 	
 	
@@ -150,6 +152,19 @@ public class Sprite extends Rectangle2D.Double
 	
 	public double getY() {
 		return y;
+	}
+	
+	public void attack(Sprite other) {
+		// TODO Auto-generated method stub
+		if (this.intersects(other)) {
+			System.out.println("touch");
+			other.health -= (int)(Math.random() * 10);
+			System.out.println(other.health);
+		}
+	}
+	
+	public int getHealth() {
+		return health;
 	}
 }
 

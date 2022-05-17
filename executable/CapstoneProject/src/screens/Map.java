@@ -28,19 +28,19 @@ public class Map extends Screen
 			obstacles = new ArrayList<Sprite>();
 		}
 
-		public void spawnNewBob(int x, int y) {
-			b = new Bob(surface.loadImage("image/pigs.png"),x,y);
+		public void spawnNewBob(int x, int y, int h) {
+			b = new Bob(surface.loadImage("image/pigs.png"),x,y, h);
 		}
 		
-		public void spawnNewMario(int x, int y) {
-			a = new Mario(surface.loadImage("image/big3.jpg"),x,y);
+		public void spawnNewMario(int x, int y, int h) {
+			a = new Mario(surface.loadImage("image/big3.jpg"),x,y, h);
 		}
 
 		// The statements in the setup() function 
 		// execute once when the program begins
 		public void setup() {
-			spawnNewMario(500, 250);
-			spawnNewBob(100, 250);
+			spawnNewMario(500, 250, 1000);
+			spawnNewBob(100, 250, 1000);
 		}
 
 		// The statements in draw() are executed until the 
@@ -49,20 +49,36 @@ public class Map extends Screen
 		// line is executed again.
 		public void draw() {
 			PImage img;
-			img = surface.loadImage("image/a.jpg");
+			img = surface.loadImage("image/ab.jpg");
 			img.resize(surface.width,surface.height);
 			surface.background(img);
 			// drawing stuff
+			
 			if (a == null) {
-				spawnNewMario(500, 250);
+				spawnNewMario(500, 250, 1000);
 		    }
 			if (b == null) {
-				spawnNewBob(100, 250);
-			}		
+				spawnNewBob(100, 250,1000);
+			}
+			surface.fill(0);
+			surface.rect(165,0, 300, 200, 10, 10, 10, 10);
+			Integer h1 = b.getHealth();
+			String str = h1.toString();
+			surface.fill(4, 150, 7);
+			surface.textSize(100);
+			surface.text(str, 185, 137);
+			
+			surface.fill(0);
+			surface.rect(2000 - 165-300 - 20,0, 300, 200, 10, 10, 10, 10);
+			Integer h2 = a.getHealth();
+			String str2 = h2.toString();
+			surface.fill(4, 150, 7);
+			surface.textSize(100);
+			surface.text(str2, 1000 + 500 + 50, 137);
 			if (aSpecial) {
 			    aTime++;
 			    if (aTime == 125) {
-			    	spawnNewMario((int)a.getX(), (int)a.getY());
+			    	spawnNewMario((int)a.getX(), (int)a.getY(), a.getHealth());
 			    	aSpecial = false;
 			    	aUse--;
 			    }
@@ -70,7 +86,7 @@ public class Map extends Screen
 			if (bSpecial) {
 			    bTime++;
 			    if (bTime == 125) {
-			    	spawnNewBob((int)b.getX(), (int)b.getY());
+			    	spawnNewBob((int)b.getX(), (int)b.getY(), b.getHealth());
 			    	bSpecial = false;
 			    	bUse--;
 			    }
@@ -102,6 +118,18 @@ public class Map extends Screen
 			}
 			if (surface.isPressed(KeyEvent.VK_D)) {
 				a.right();
+			}
+			
+			if(surface.isPressed(KeyEvent.VK_Q)) {
+				a.attack(b);
+				if (b.getHealth() <= 0)
+					surface.switchScreen(3);
+			}
+			
+			if (surface.isPressed(KeyEvent.VK_CONTROL)) {
+				b.attack(a);
+				if (a.getHealth() <= 0)
+					surface.switchScreen(4);
 			}
 			
 			if (surface.isPressed(KeyEvent.VK_E) && !aSpecial && aUse > 0) {
