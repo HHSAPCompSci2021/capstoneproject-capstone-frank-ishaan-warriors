@@ -20,14 +20,6 @@ public class Bob extends Sprite {
 	}
 
 	// METHODS
-	public void walk(int dir) {
-		
-	}
-
-	public void jump() {
-		
-	}
-
 	public void act(List<Sprite> obstacles) {
 		yVel += 0.2;
 		
