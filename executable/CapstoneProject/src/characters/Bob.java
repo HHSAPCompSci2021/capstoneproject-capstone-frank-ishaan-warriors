@@ -8,13 +8,13 @@ import processing.core.PImage;
 
 public class Bob extends Sprite {
 
-	public static final int MARIO_WIDTH = 250;
-	public static final int MARIO_HEIGHT = 300;
+	public static final int BOB_WIDTH = 250;
+	public static final int BOB_HEIGHT = 300;
 
 	private double xVel, yVel;
 
 	public Bob(PImage img, int x, int y, int health) {
-		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT, health);
+		super(img, x, y, BOB_WIDTH, BOB_HEIGHT, health);
 		xVel = 0;
 		yVel = 0;
 	}
