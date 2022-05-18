@@ -11,6 +11,7 @@ public class Sprite extends Rectangle2D.Double
 	protected int health;
 	protected String specialImgName;
 	protected int use = 3;
+	private boolean invis;
 	
 	// CONSTRUCTORS
 	
@@ -22,6 +23,7 @@ public class Sprite extends Rectangle2D.Double
 		super(x,y,w,h);
 		image = img;
 		this.health = health;
+		invis = false;
 	}
 	
 	
@@ -56,22 +58,27 @@ public class Sprite extends Rectangle2D.Double
 	
 	public void up() {
 		moveByAmount(0, -15);
+		applyWindowLimits(2000, 2000);
 	}
 	
 	public void down() {
 		moveByAmount(0, 15);
+		applyWindowLimits(2000, 2000);
 	}
 	
 	public void right() {
 		moveByAmount(15, 0);
+		applyWindowLimits(2000, 2000);
 	}
 
 	public void left() {
 		moveByAmount(-15, 0);
+		applyWindowLimits(2000, 2000);
 	}
 	
 	public void special(PApplet surface) {
 		image = surface.loadImage(specialImgName);
+		invis = true;
 	}
 	
 	public double getX() {
@@ -93,6 +100,10 @@ public class Sprite extends Rectangle2D.Double
 	
 	public int getHealth() {
 		return health;
+	}
+	
+	public boolean getI() {
+		return invis;
 	}
 }
 

@@ -20,6 +20,7 @@ public class Map extends Screen
 		private int aTime = 0, bTime = 0;
 		private boolean aSpecial = false, bSpecial = false;
 		private int aUse = 3, bUse = 3;
+		private Weapon c;
 
 		public Map(DrawingSurface surface) {
 			super(2000, 2000);
@@ -34,6 +35,10 @@ public class Map extends Screen
 		
 		public void spawnNewMario(int x, int y, int h) {
 			a = new Mario(surface.loadImage("image/big3.jpg"),x,y, h);
+		}
+		
+		public void spawnWeapon() {
+			c = new Weapon(surface.loadImage("image/taswer.png"), 950, 970, 1000);
 		}
 
 		// The statements in the setup() function 
@@ -53,7 +58,7 @@ public class Map extends Screen
 			img.resize(surface.width,surface.height);
 			surface.background(img);
 			// drawing stuff
-			
+			spawnWeapon();
 			if (a == null) {
 				spawnNewMario(500, 250, 1000);
 		    }
@@ -77,7 +82,7 @@ public class Map extends Screen
 			surface.text(str2, 1000 + 500 + 50, 137);
 			if (aSpecial) {
 			    aTime++;
-			    if (aTime == 125) {
+			    if (aTime == 200) {
 			    	spawnNewMario((int)a.getX(), (int)a.getY(), a.getHealth());
 			    	aSpecial = false;
 			    	aUse--;
@@ -85,7 +90,7 @@ public class Map extends Screen
 			}
 			if (bSpecial) {
 			    bTime++;
-			    if (bTime == 125) {
+			    if (bTime == 200) {
 			    	spawnNewBob((int)b.getX(), (int)b.getY(), b.getHealth());
 			    	bSpecial = false;
 			    	bUse--;
@@ -93,6 +98,7 @@ public class Map extends Screen
 			}
 			a.draw(surface);
 			b.draw(surface);
+			c.draw(surface);
 			
 			if (surface.isPressed(KeyEvent.VK_UP)) {
 				b.up();
@@ -121,15 +127,19 @@ public class Map extends Screen
 			}
 			
 			if(surface.isPressed(KeyEvent.VK_Q)) {
-				a.attack(b);
-				if (b.getHealth() <= 0)
-					surface.switchScreen(3);
+				if (!(b.getI())) {
+					a.attack(b);
+					if (b.getHealth() <= 0)
+						surface.switchScreen(3);
+				}
 			}
 			
 			if (surface.isPressed(KeyEvent.VK_CONTROL)) {
-				b.attack(a);
-				if (a.getHealth() <= 0)
-					surface.switchScreen(4);
+				if (!(a.getI())) {
+					b.attack(a);
+					if (a.getHealth() <= 0)
+						surface.switchScreen(4);
+				}
 			}
 			
 			if (surface.isPressed(KeyEvent.VK_E) && !aSpecial && aUse > 0) {
