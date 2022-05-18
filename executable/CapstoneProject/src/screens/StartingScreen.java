@@ -24,7 +24,7 @@ public class StartingScreen extends Screen {
 		surface.fill(255, 0, 0);
 		surface.textAlign(surface.CENTER);
 		surface.textSize(50);
-		surface.text("WARRIOR FIGHTERS", 400, 100);
+		surface.text("ECLPISE WARRIORS", 400, 100);
 		//surface.noFill();
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		String str = "2 Player Mode";
