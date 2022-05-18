@@ -12,6 +12,7 @@ public class Sprite extends Rectangle2D.Double
 	protected String specialImgName;
 	protected int use = 3;
 	private boolean invis;
+	private boolean hasW;
 	
 	// CONSTRUCTORS
 	
@@ -24,14 +25,15 @@ public class Sprite extends Rectangle2D.Double
 		image = img;
 		this.health = health;
 		invis = false;
+		hasW = false;
 	}
 	
 	
 	// METHODS	
-	public void moveToLocation(double x1, double y1) {
+	public void moveToLocation(double x, double y) {
 
-		x=x1;
-		y=y1;
+		super.x=x;
+		super.y=y;
 	}
 	
 	public void moveByAmount(double x, double y) {
@@ -91,10 +93,21 @@ public class Sprite extends Rectangle2D.Double
 	
 	public void attack(Sprite other) {
 		// TODO Auto-generated method stub
-		if (this.intersects(other)) {
-			System.out.println("touch");
+		if (this.intersects(other) && (other instanceof Mario || other instanceof Bob)) {
+		//	System.out.println("touch");
 			other.health -= (int)(Math.random() * 10);
-			System.out.println(other.health);
+			//System.out.println(other.health);
+		}
+		
+		if (this.intersects(other) && other instanceof Weapon) {
+		//	System.out.println("touch");
+			if (this instanceof Mario) {
+				other.moveToLocation(2000-50-50, 10);
+				this.hasW = true;
+			} else {
+				other.moveToLocation(10, 10);
+				this.hasW = true;
+			}
 		}
 	}
 	
@@ -104,6 +117,10 @@ public class Sprite extends Rectangle2D.Double
 	
 	public boolean getI() {
 		return invis;
+	}
+	
+	public boolean getW() {
+		return this.hasW;
 	}
 }
 

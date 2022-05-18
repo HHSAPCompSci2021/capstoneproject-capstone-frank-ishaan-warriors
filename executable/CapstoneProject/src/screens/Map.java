@@ -37,8 +37,8 @@ public class Map extends Screen
 			a = new Mario(surface.loadImage("image/big3.jpg"),x,y, h);
 		}
 		
-		public void spawnWeapon() {
-			c = new Weapon(surface.loadImage("image/taswer.png"), 950, 970, 1000);
+		public void spawnWeapon(int x, int y) {
+			c = new Weapon(surface.loadImage("image/taswer.png"), x, y, 1000);
 		}
 
 		// The statements in the setup() function 
@@ -58,7 +58,8 @@ public class Map extends Screen
 			img.resize(surface.width,surface.height);
 			surface.background(img);
 			// drawing stuff
-			spawnWeapon();
+			if (c == null)
+				spawnWeapon(950, 970);
 			if (a == null) {
 				spawnNewMario(500, 250, 1000);
 		    }
@@ -98,8 +99,9 @@ public class Map extends Screen
 			}
 			a.draw(surface);
 			b.draw(surface);
-			c.draw(surface);
-			
+			if (a.getHealth() < 500 || b.getHealth() < 500) {
+				c.draw(surface);
+		    }
 			if (surface.isPressed(KeyEvent.VK_UP)) {
 				b.up();
 			}
@@ -125,10 +127,13 @@ public class Map extends Screen
 			if (surface.isPressed(KeyEvent.VK_D)) {
 				a.right();
 			}
-			
+			if (surface.mousePressed && a.getW()) {
+				System.out.println("a");
+			}
 			if(surface.isPressed(KeyEvent.VK_Q)) {
 				if (!(b.getI())) {
 					a.attack(b);
+					a.attack(c);
 					if (b.getHealth() <= 0)
 						surface.switchScreen(3);
 				}
@@ -137,6 +142,7 @@ public class Map extends Screen
 			if (surface.isPressed(KeyEvent.VK_CONTROL)) {
 				if (!(a.getI())) {
 					b.attack(a);
+					b.attack(c);
 					if (a.getHealth() <= 0)
 						surface.switchScreen(4);
 				}
