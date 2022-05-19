@@ -122,5 +122,9 @@ public class Sprite extends Rectangle2D.Double
 	public boolean getW() {
 		return this.hasW;
 	}
+	
+	public void setW(boolean w) {
+		this.hasW = w;
+	}
 }
 

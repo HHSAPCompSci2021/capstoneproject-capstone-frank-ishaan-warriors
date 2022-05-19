@@ -128,7 +128,12 @@ public class Map extends Screen
 				a.right();
 			}
 			if (surface.mousePressed && a.getW()) {
-				System.out.println("a");
+				c.shoot(surface, surface.mouseX *2.5, surface.mouseY * 3.333333333333333333333333333333333333333333333333333333333333333333333333333333, a, b);
+				
+			}
+			if (surface.mousePressed && b.getW()) {
+				c.shoot(surface, surface.mouseX *2.5, surface.mouseY * 3.333333333333333333333333333333333333333333333333333333333333333333333333333333, b, a);
+				
 			}
 			if(surface.isPressed(KeyEvent.VK_Q)) {
 				if (!(b.getI())) {

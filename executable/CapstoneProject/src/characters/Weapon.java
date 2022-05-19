@@ -1,11 +1,9 @@
 package characters;
 
 
-import java.awt.geom.Rectangle2D;
-import java.util.List;
-
 import processing.core.PApplet;
 import processing.core.PImage;
+import franklin.shapes.*;
 
 public class Weapon extends Sprite {
 
@@ -21,5 +19,21 @@ public class Weapon extends Sprite {
 	}
 
 	// METHODS
-
+	
+	public void shoot(PApplet surface, double mx, double my, Sprite l, Sprite t) {
+		t.setW(false);
+	//	surface.line
+		surface.stroke(255, 0 , 0);
+		surface.strokeWeight(40);
+		surface.line((float)t.getX(), (float)t.getY(), (float)mx, (float)my);
+		Line laser = new Line((float)t.getX(), (float)t.getY(), (float)mx, (float)my);
+		Line a = new Line (t.getX(), t.getY(), t.getX() + t.width, t.getY());
+		Line b = new Line (t.getX() + t.width, t.getY(), t.getX() + t.width, t.getY() + t.height);
+		Line c = new Line (t.getX() + t.width, t.getY() + t.height, t.getX(), t.getY() + t.height);
+		Line d = new Line (t.getX(), t.getY(), t.getX(), t.getY() + t.height);
+		if (laser.intersects(a) || laser.intersects(b) || laser.intersects(c) || laser.intersects(d)) {
+			t.health -= 200;
+		}
+	}
+	
 }
