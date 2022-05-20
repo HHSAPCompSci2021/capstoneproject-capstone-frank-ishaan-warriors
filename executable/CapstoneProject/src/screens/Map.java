@@ -21,6 +21,7 @@ public class Map extends Screen
 		private boolean aSpecial = false, bSpecial = false;
 		private int aUse = 3, bUse = 3;
 		private Weapon c;
+		private HealthBoost d;
 
 		public Map(DrawingSurface surface) {
 			super(2000, 2000);
@@ -39,6 +40,10 @@ public class Map extends Screen
 		
 		public void spawnWeapon(int x, int y) {
 			c = new Weapon(surface.loadImage("image/taswer.png"), x, y, 1000);
+		}
+		
+		public void spawnHealth() {
+			d = new HealthBoost(surface.loadImage("image/health2.PNG"),(int) (Math.random() * 1800), (int) (Math.random() * 1800), 1000);
 		}
 
 		// The statements in the setup() function 
@@ -65,6 +70,9 @@ public class Map extends Screen
 		    }
 			if (b == null) {
 				spawnNewBob(100, 250,1000);
+			}
+			if (d == null) {
+				spawnHealth();
 			}
 			surface.fill(0);
 			surface.rect(165,0, 300, 200, 10, 10, 10, 10);
@@ -99,6 +107,7 @@ public class Map extends Screen
 			}
 			a.draw(surface);
 			b.draw(surface);
+			d.draw(surface);
 			if (a.getHealth() < 500 || b.getHealth() < 500) {
 				c.draw(surface);
 		    }
@@ -139,8 +148,22 @@ public class Map extends Screen
 				if (!(b.getI())) {
 					a.attack(b);
 					a.attack(c);
-					if (b.getHealth() <= 0)
+					if (b.getHealth() <= 0) {
+						spawnWeapon(950, 970);
+						spawnNewMario(500, 250, 1000);
+						spawnNewBob(100, 250,1000);
+						a.setHealth(1000);
+						b.setHealth(1000);
+						a.setW(false);
+						b.setW(false);
+						aTime = 0;
+						bTime = 0;
+						aSpecial = false;
+						bSpecial = false;
+						aUse = 3;
+						bUse = 3;
 						surface.switchScreen(3);
+					}
 				}
 			}
 			
@@ -148,8 +171,22 @@ public class Map extends Screen
 				if (!(a.getI())) {
 					b.attack(a);
 					b.attack(c);
-					if (a.getHealth() <= 0)
+					if (a.getHealth() <= 0) {
+						spawnWeapon(950, 970);
+						spawnNewMario(500, 250, 1000);
+						spawnNewBob(100, 250,1000);
+						a.setHealth(1000);
+						b.setHealth(1000);
+						a.setW(false);
+						b.setW(false);
+						aTime = 0;
+						bTime = 0;
+						aSpecial = false;
+						bSpecial = false;
+						aUse = 3;
+						bUse = 3;
 						surface.switchScreen(4);
+					}
 				}
 			}
 			

@@ -126,5 +126,9 @@ public class Sprite extends Rectangle2D.Double
 	public void setW(boolean w) {
 		this.hasW = w;
 	}
+	
+	public void setHealth(int h) {
+		this.health = h;
+	}
 }
 
