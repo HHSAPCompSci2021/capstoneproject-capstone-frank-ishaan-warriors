@@ -36,7 +36,7 @@ public class Bob extends Sprite {
 	}
 
 	public void special(PApplet surface) {
-		specialImgName = "image/angry.jpg";
+		specialImgName = "image/bobInvisible.png";
 		super.special(surface);
 	}
 

@@ -22,7 +22,7 @@ public class Mario extends Sprite {
 
 	// METHODS
 	public void special(PApplet surface) {
-		specialImgName = "image/sad.jpg";
+		specialImgName = "image/marioInvisible.png";
 		super.special(surface);
 	}
 

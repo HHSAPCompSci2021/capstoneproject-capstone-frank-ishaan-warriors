@@ -77,7 +77,11 @@ public class Sprite extends Rectangle2D.Double
 		moveByAmount(-15, 0);
 		applyWindowLimits(2000, 2000);
 	}
-	
+	public void setHealth(int h)
+	{
+		health=h;
+	}
+
 	public void special(PApplet surface) {
 		image = surface.loadImage(specialImgName);
 		invis = true;
@@ -91,7 +95,8 @@ public class Sprite extends Rectangle2D.Double
 		return y;
 	}
 	
-	public void attack(Sprite other) {
+	public void attack(Sprite other) 
+	{
 		// TODO Auto-generated method stub
 		if (this.intersects(other) && (other instanceof Mario || other instanceof Bob)) {
 		//	System.out.println("touch");
