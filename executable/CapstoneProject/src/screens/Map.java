@@ -197,11 +197,45 @@ public class Map extends Screen
 			}
 			if (surface.mousePressed && a.getW()) {
 				c.shoot(surface, surface.mouseX *2.5, surface.mouseY * 3.333333333333333333333333333333333333333333333333333333333333333333333333333333, a, b);
-				
+				if(b.getHealth()<0)
+				{
+					spawnWeapon(950, 970);
+					spawnNewMario(500, 250, 1000);
+					spawnNewBob(100, 250,1000);
+					a.setHealth(1000);
+					b.setHealth(1000);
+					a.setW(false);
+					b.setW(false);
+					aTime = 0;
+					bTime = 0;
+					aSpecial = false;
+					bSpecial = false;
+					aUse = 3;
+					bUse = 3;
+					surface.switchScreen(4);
+					
+				}
 			}
 			if (surface.mousePressed && b.getW()) {
 				c.shoot(surface, surface.mouseX *2.5, surface.mouseY * 3.333333333333333333333333333333333333333333333333333333333333333333333333333333, b, a);
-				
+				if(a.getHealth()<0)
+				{
+					spawnWeapon(950, 970);
+					spawnNewMario(500, 250, 1000);
+					spawnNewBob(100, 250,1000);
+					a.setHealth(1000);
+					b.setHealth(1000);
+					a.setW(false);
+					b.setW(false);
+					aTime = 0;
+					bTime = 0;
+					aSpecial = false;
+					bSpecial = false;
+					aUse = 3;
+					bUse = 3;
+					surface.switchScreen(3);
+					
+				}
 			}
 /*										 
 			if(surface.isPressed(KeyEvent.VK_Q)) {
@@ -241,10 +275,17 @@ public class Map extends Screen
 			{
 		  			if (a.intersects(b)) {
 						marioRecoveryRate=0;
-						spawnNewMario((int)a.getX(), (int)a.getY(), a.getHealth(),"image/marioHurt.png");
 						marioRed = true;
-						a.setHealth(a.getHealth()-1);
+						if (!aSpecial) {
+							spawnNewMario((int)a.getX(), (int)a.getY(), a.getHealth(),"image/marioHurt.png");
+							b.attack(a);
+						}
 		  			}
+		  			
+					if (b.intersects(c)) {
+						b.attack(c);
+					}
+					
 					if(a.getHealth() >0 && a.getHealth() <=2)
 					{
 						spawnNewMario((int)a.getX(), (int)a.getY(), a.getHealth(),"image/marioDeath.png");
@@ -252,6 +293,19 @@ public class Map extends Screen
 					
 					if(a.getHealth()<0)
 					{
+						spawnWeapon(950, 970);
+						spawnNewMario(500, 250, 1000);
+						spawnNewBob(100, 250,1000);
+						a.setHealth(1000);
+						b.setHealth(1000);
+						a.setW(false);
+						b.setW(false);
+						aTime = 0;
+						bTime = 0;
+						aSpecial = false;
+						bSpecial = false;
+						aUse = 3;
+						bUse = 3;
 						surface.switchScreen(3);
 						
 					}
@@ -267,8 +321,14 @@ public class Map extends Screen
 					{
 						bobRecoveryRate=0;
 						bobRed = true;
-						spawnNewBob((int)b.getX(), (int)b.getY(), b.getHealth(),"image/bobHurt.png");
-						b.setHealth(b.getHealth()-1);
+						if (!bSpecial) {
+							spawnNewBob((int)b.getX(), (int)b.getY(), b.getHealth(),"image/bobHurt.png");
+							a.attack(b);
+						}
+					}
+					
+					if (a.intersects(c)) {
+						a.attack(c);
 					}
 					
 					if(b.getHealth() >0 && b.getHealth() <=2)
@@ -278,6 +338,19 @@ public class Map extends Screen
 										
 					if(b.getHealth()<=0)
 					{
+						spawnWeapon(950, 970);
+						spawnNewMario(500, 250, 1000);
+						spawnNewBob(100, 250,1000);
+						a.setHealth(1000);
+						b.setHealth(1000);
+						a.setW(false);
+						b.setW(false);
+						aTime = 0;
+						bTime = 0;
+						aSpecial = false;
+						bSpecial = false;
+						aUse = 3;
+						bUse = 3;
 						surface.switchScreen(4);
 					}
 			}
