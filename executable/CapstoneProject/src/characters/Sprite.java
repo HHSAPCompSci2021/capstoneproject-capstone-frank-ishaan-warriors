@@ -114,6 +114,11 @@ public class Sprite extends Rectangle2D.Double
 				this.hasW = true;
 			}
 		}
+		
+		if (other instanceof HealthBoost) {
+			other.moveToLocation(200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600));
+			this.health += 50;
+		}
 	}
 	
 	public int getHealth() {

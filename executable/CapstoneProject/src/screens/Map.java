@@ -1,8 +1,8 @@
 package screens;
+
 import main.*;
 import processing.core.PImage;
 import characters.*;
-
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ public class Map extends Screen
 {
 		
 		private DrawingSurface surface;
-		
 		private Rectangle screenRect;
 		private Mario a;
 		private Bob b;
@@ -21,18 +20,22 @@ public class Map extends Screen
 		private boolean aSpecial = false, bSpecial = false;
 		private int aUse = 3, bUse = 3;
 		private Weapon c;
+		private HealthBoost d;
+		private HealthBoost d2;
+		private HealthBoost d3;
 		private int bobHurt = 0, marioHurt = 0;
 		private boolean bobRed = false, marioRed = false;
-
 		private int marioRecoveryRate=0;
-		private int bobRecoveryRate=0;				
+		private int bobRecoveryRate=0;		
+		
 		public Map(DrawingSurface surface) {
 			super(2000, 2000);
 			this.surface = surface;
 			screenRect = new Rectangle(0,0,DRAWING_WIDTH,DRAWING_HEIGHT);
 			obstacles = new ArrayList<Sprite>();
 		}
-	public void spawnNewBob(int x, int y, int h) 
+		
+		public void spawnNewBob(int x, int y, int h) 
 		{
 			b = new Bob(surface.loadImage("image/bobFight.png"),x,y,h);
 		}
@@ -53,6 +56,9 @@ public class Map extends Screen
 		}
 		public void spawnWeapon(int x, int y) {
 			c = new Weapon(surface.loadImage("image/taswer.png"), x, y, 1000);
+		}
+		public void spawnNewHealth() {
+			d = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
 		}
 
 		// The statements in the setup() function 
@@ -83,6 +89,10 @@ public class Map extends Screen
 			if (b == null) 
 			{
 				spawnNewBob(100, 250, 1000,"image/bobFight.png");
+			}
+			
+			if (d == null) {
+				spawnNewHealth();
 			}
 			surface.fill(0);
 			surface.rect(165,0, 300, 200, 10, 10, 10, 10);
@@ -120,10 +130,21 @@ public class Map extends Screen
 			}
 			a.draw(surface);
 			b.draw(surface);
+			d.draw(surface);
 			if (a.getHealth() < 500 || b.getHealth() < 500) 
 			{
 				c.draw(surface);
 		    }
+			
+			if (a.getHealth() < 500 || b.getHealth() < 500) {
+				d2 = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
+				d2.draw(surface);
+			}
+			
+			if (a.getHealth() < 100 || b.getHealth() < 100) {
+				d3 = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
+				d3.draw(surface);
+			}
 			if(marioRed && !bSpecial)
 			{
 				marioHurt++;
@@ -237,26 +258,7 @@ public class Map extends Screen
 					
 				}
 			}
-/*										 
-			if(surface.isPressed(KeyEvent.VK_Q)) {
-				if (!(b.getI()))
-					{
-					a.attack(b);						
-					a.attack(c);
-					if (b.getHealth() <= 0)
-					{surface.switchScreen(3);}
-			}
-			
-			if (surface.isPressed(KeyEvent.VK_CONTROL)) 
-			{
-				if (!(a.getI())) {
-					b.attack(a);
-					b.attack(c);
-					if (a.getHealth() <= 0)
-						surface.switchScreen(4);
-				}
-			}
-	*/		
+
 			if (surface.isPressed(KeyEvent.VK_E) && !aSpecial && aUse > 0) 
 			{
 				
@@ -270,8 +272,8 @@ public class Map extends Screen
 				b.special(surface);
 				bTime = 0;
 				bSpecial = true;
-		}
-	  if (surface.isPressed(KeyEvent.VK_CONTROL))
+			}
+			if (surface.isPressed(KeyEvent.VK_CONTROL))
 			{
 		  			if (a.intersects(b)) {
 						marioRecoveryRate=0;
@@ -284,6 +286,10 @@ public class Map extends Screen
 		  			
 					if (b.intersects(c)) {
 						b.attack(c);
+					}
+					
+					if (b.intersects(d)) {
+						b.attack(d);
 					}
 					
 					if(a.getHealth() >0 && a.getHealth() <=2)
@@ -310,10 +316,6 @@ public class Map extends Screen
 						
 					}
 			}
-//			if(marioRecoveryRate>2 && a.getHealth()>2)
-//			{
-//				spawnNewMario((int)a.getX(), (int)a.getY(), a.getHealth(),"image/marioFight.png");
-//			}
 			
 			if (surface.isPressed(KeyEvent.VK_Q))
 			{
@@ -329,6 +331,10 @@ public class Map extends Screen
 					
 					if (a.intersects(c)) {
 						a.attack(c);
+					}
+					
+					if (a.intersects(d)) {
+						a.attack(d);
 					}
 					
 					if(b.getHealth() >0 && b.getHealth() <=2)
@@ -353,13 +359,6 @@ public class Map extends Screen
 						bUse = 3;
 						surface.switchScreen(4);
 					}
-			}
-								
-//			if(bobRecoveryRate>2 && b.getHealth()>2)
-//			{
-//				spawnNewBob((int)b.getX(), (int)b.getY(), b.getHealth(),"image/bobFight.png");
-// 
-//   
-//			}
-}
+			}							
+		}
 }
