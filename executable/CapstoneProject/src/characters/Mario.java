@@ -21,11 +21,18 @@ public class Mario extends Sprite {
 	}
 
 	// METHODS
+	/**
+	 * changes the image of Bob to invisible mode
+	 */
 	public void special(PApplet surface) {
 		specialImgName = "image/marioInvisible.png";
 		super.special(surface);
 	}
 
+	/**
+	 * allows  Mario to move 
+	 * @param obstacles - obstacles that Mario my encounter on the map 
+	 */
 	public void act(List<Sprite> obstacles) {
 	//	yVel += 0.2;
 		

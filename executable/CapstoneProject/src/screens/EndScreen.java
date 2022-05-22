@@ -16,7 +16,9 @@ public class EndScreen extends Screen {
 		this.win = win;
 		button = new Rectangle(350, 500, 100,100);
 	}
-
+/**
+ * Draws the end screen of the game
+ */
 	public void draw() {
 		if (win) {
 			PImage img;

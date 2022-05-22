@@ -19,7 +19,14 @@ public class Weapon extends Sprite {
 	}
 
 	// METHODS
-	
+	/**
+	 * Displays a laser that comes out of the weapon.laser does 200 damage to the character it's being shot at. 
+	 * @param surface
+	 * @param mx - x coordinate of the mouse click on the screen
+	 * @param my
+	 * @param l  - character that is shooting
+	 * @param t - character that is being shot at
+	 */
 	public void shoot(PApplet surface, double mx, double my, Sprite l, Sprite t) {
 		l.setW(false);
 	//	surface.line

@@ -20,6 +20,10 @@ public class Bob extends Sprite {
 	}
 
 	// METHODS
+	/**
+	 * allows  Bob to move 
+	 * @param obstacles - obstacles that Bob my encounter on the map 
+	 */
 	public void act(List<Sprite> obstacles) {
 		yVel += 0.2;
 		
@@ -34,7 +38,9 @@ public class Bob extends Sprite {
 		}
 		
 	}
-
+	/**
+	 * changes the image of Bob to invisible mode
+	 */
 	public void special(PApplet surface) {
 		specialImgName = "image/bobInvisible.png";
 		super.special(surface);
