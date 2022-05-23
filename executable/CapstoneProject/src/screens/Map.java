@@ -137,12 +137,16 @@ public class Map extends Screen
 		    }
 			
 			if (a.getHealth() < 500 || b.getHealth() < 500) {
-				d2 = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
+				if (d2 == null) {
+				    d2 = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
+				}
 				d2.draw(surface);
 			}
 			
 			if (a.getHealth() < 100 || b.getHealth() < 100) {
-				d3 = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
+				if (d3 == null) {
+				    d3 = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
+				}
 				d3.draw(surface);
 			}
 			if(marioRed && !bSpecial)

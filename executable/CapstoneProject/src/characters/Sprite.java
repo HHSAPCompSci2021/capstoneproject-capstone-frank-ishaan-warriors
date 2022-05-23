@@ -13,6 +13,7 @@ public class Sprite extends Rectangle2D.Double
 	protected int use = 3;
 	private boolean invis;
 	private boolean hasW;
+	private boolean weaponUsed;
 	
 	// CONSTRUCTORS
 	
@@ -26,6 +27,7 @@ public class Sprite extends Rectangle2D.Double
 		this.health = health;
 		invis = false;
 		hasW = false;
+		weaponUsed = false;
 	}
 	
 	
@@ -104,8 +106,8 @@ public class Sprite extends Rectangle2D.Double
 			//System.out.println(other.health);
 		}
 		
-		if (this.intersects(other) && other instanceof Weapon) {
-		//	System.out.println("touch");
+		if (!weaponUsed && other instanceof Weapon) {
+			System.out.println("touch");
 			if (this instanceof Mario) {
 				other.moveToLocation(2000-50-50, 10);
 				this.hasW = true;
@@ -113,6 +115,7 @@ public class Sprite extends Rectangle2D.Double
 				other.moveToLocation(10, 10);
 				this.hasW = true;
 			}
+			weaponUsed = true;
 		}
 		
 		if (other instanceof HealthBoost) {
