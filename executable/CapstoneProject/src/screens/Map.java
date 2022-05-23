@@ -1,5 +1,4 @@
 package screens;
-
 import main.*;
 import processing.core.PImage;
 import characters.*;
@@ -7,7 +6,12 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author Ishaan Musunuri and Frank An
+ * version 05/20/21
+ *
+ */
 public class Map extends Screen
 {
 		

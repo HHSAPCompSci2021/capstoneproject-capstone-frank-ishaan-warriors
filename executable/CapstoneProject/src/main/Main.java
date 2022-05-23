@@ -1,10 +1,14 @@
 package main;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
+/**
+ * @version 05/14/22
+ * @author Ishaan Musunuri
+ *
+ */
 public class Main {
 
 	public static void main(String args[]) {

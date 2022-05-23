@@ -1,5 +1,9 @@
 package screens;
-
+ /**
+  * 
+  * @author Ishaan Musunuri
+  *@version 05/11/22
+  */
 public abstract class Screen {
 
 	public final int DRAWING_WIDTH, DRAWING_HEIGHT;

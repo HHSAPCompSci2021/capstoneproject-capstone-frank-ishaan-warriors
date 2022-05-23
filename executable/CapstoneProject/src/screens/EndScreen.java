@@ -3,7 +3,11 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import main.DrawingSurface;
 import processing.core.PImage;
-
+/**
+ * 
+ * @author Frank An
+ *@version 5/19/22
+ */
 public class EndScreen extends Screen {
 	private DrawingSurface surface;
 	

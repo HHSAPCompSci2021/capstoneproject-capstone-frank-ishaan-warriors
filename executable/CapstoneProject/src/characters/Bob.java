@@ -5,7 +5,13 @@ import java.util.List;
 
 import processing.core.PApplet;
 import processing.core.PImage;
-
+/**
+ * 
+ * @author Ishaan Musunuri, Frank An
+ * @version 05/18/22
+ * 
+ *
+ */
 public class Bob extends Sprite {
 
 	public static final int BOB_WIDTH = 250;

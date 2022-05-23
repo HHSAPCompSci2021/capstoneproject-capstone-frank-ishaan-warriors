@@ -3,7 +3,13 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import main.DrawingSurface;
 import processing.core.PImage;
-
+/**
+ * 
+ * @author Frank An and Ishaan Musunuri
+ * @version 5/17/22
+ * 
+ *
+ */
 public class StartingScreen extends Screen {
 	private DrawingSurface surface;
 	

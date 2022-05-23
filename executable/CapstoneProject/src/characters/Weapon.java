@@ -4,7 +4,11 @@ package characters;
 import processing.core.PApplet;
 import processing.core.PImage;
 import franklin.shapes.*;
-
+/**
+ * @version 05/21/22
+ * @author Frank An
+ *
+ */
 public class Weapon extends Sprite {
 
 	public static final int MARIO_WIDTH = 250;
