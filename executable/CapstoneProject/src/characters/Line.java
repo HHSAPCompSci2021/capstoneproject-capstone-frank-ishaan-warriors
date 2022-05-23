@@ -1,5 +1,4 @@
 package characters;
-import java.awt.Color;
 
 import processing.core.PApplet;
 

@@ -1,7 +1,6 @@
 package characters;
 
 
-import java.awt.geom.Rectangle2D;
 import java.util.List;
 
 import processing.core.PApplet;
@@ -34,7 +33,6 @@ public class Mario extends Sprite {
 	 * @param obstacles - obstacles that Mario my encounter on the map 
 	 */
 	public void act(List<Sprite> obstacles) {
-	//	yVel += 0.2;
 		
 		x += xVel;
 		y += yVel;

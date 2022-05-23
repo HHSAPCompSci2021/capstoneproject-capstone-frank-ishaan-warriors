@@ -136,15 +136,11 @@ public class Sprite extends Rectangle2D.Double
 	 */
 	public void attack(Sprite other) 
 	{
-		// TODO Auto-generated method stub
 		if (this.intersects(other) && (other instanceof Mario || other instanceof Bob)) {
-		//	System.out.println("touch");
 			other.health -= (int)(Math.random() * 10);
-			//System.out.println(other.health);
 		}
 		
 		if (!weaponUsed && other instanceof Weapon) {
-			System.out.println("touch");
 			if (this instanceof Mario) {
 				other.moveToLocation(2000-50-50, 10);
 				this.hasW = true;
