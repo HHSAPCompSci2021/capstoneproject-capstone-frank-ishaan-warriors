@@ -3,7 +3,11 @@ package characters;
 
 import processing.core.PApplet;
 import processing.core.PImage;
-
+/**
+ * 
+ * @author Frank An
+ *@version 05/21/22
+ */
 public class HealthBoost extends Sprite {
 
 	private double xVel, yVel;

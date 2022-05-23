@@ -3,7 +3,11 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import main.DrawingSurface;
 import processing.core.PImage;
-
+/**
+ * 
+ * @author Frank An
+ *@version 5/19/22
+ */
 public class EndScreen extends Screen {
 	private DrawingSurface surface;
 	
@@ -16,7 +20,9 @@ public class EndScreen extends Screen {
 		this.win = win;
 		button = new Rectangle(350, 500, 100,100);
 	}
-
+/**
+ * Draws the end screen of the game
+ */
 	public void draw() {
 		if (win) {
 			PImage img;
