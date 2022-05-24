@@ -6,9 +6,12 @@ import java.util.List;
 import processing.core.PApplet;
 import processing.core.PImage;
 /**
+ * The Bob class represents a Bob character that is drawn by an imported image and user controlled by the arrow keys.
+ * It is a Sprite and can act and move or use its special ability, which is to become invisible.
+ * 
  * 
  * @author Ishaan Musunuri, Frank An
- * @version 05/18/22
+ * @version 05/23/22
  * 
  *
  */
@@ -27,8 +30,8 @@ public class Bob extends Sprite {
 
 	// METHODS
 	/**
-	 * allows  Bob to move 
-	 * @param obstacles - obstacles that Bob my encounter on the map 
+	 * Allows Bob to move 
+	 * @param obstacles - obstacles that Bob may encounter on the map (didn't have time to implement but wanted to add later)
 	 */
 	public void act(List<Sprite> obstacles) {
 		yVel += 0.2;
@@ -45,7 +48,7 @@ public class Bob extends Sprite {
 		
 	}
 	/**
-	 * changes the image of Bob to invisible mode
+	 * Changes the image of Bob to invisible mode, which doesn't allow the other Mario to attack(deal damage) to Bob
 	 */
 	public void special(PApplet surface) {
 		specialImgName = "image/bobInvisible.png";

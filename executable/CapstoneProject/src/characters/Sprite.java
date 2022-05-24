@@ -34,31 +34,35 @@ public class Sprite extends Rectangle2D.Double
 		weaponUsed = false;
 	}
 	
-	
 	// METHODS	
 	/**
 	 * Moves Sprite to specified location
-	 * @param x - x coordinate of location
-	 * @param y - y coordinate of location
+	 * 
+	 * @pre x and y coordinates are inside the window limits set in the applyWindowLimits() method
+	 * @param x - x coordinate of new location
+	 * @param y - y coordinate of new location
 	 */
 	public void moveToLocation(double x, double y) {
-
 		super.x=x;
 		super.y=y;
 	}
+	
 	/**
 	 * Moves sprite by x and y amount
 	 * @param x - amount that should be moved on the x axis. 
-	 * @param y
+	 * @param y - amount that should be moved on the y axis.
 	 */
 	public void moveByAmount(double x, double y) {
 		super.x += x;
 		super.y += y;
 	}
+	
 	/**
-	 * Sets the limits of a window
+	 * Sets the borders of the window
+	 * 
 	 * @param windowWidth - width of the window
 	 * @param windowHeight - height of the window 
+	 * @post the characters can't move outside the window
 	 */
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		x = Math.min(x,windowWidth-width);
@@ -67,7 +71,11 @@ public class Sprite extends Rectangle2D.Double
 		y = Math.max(0,y);
 	}
 	
-	
+	/**
+	 * Draws the Sprite onto the DrawingSurface using the image field.
+	 * 
+	 * @param g The Processing PApplet on which to draw the Sprite.
+	 */
 	public void draw(PApplet g) {
 		if (image != null)
 			g.image(image,(float)x,(float)y,(float)width,(float)height);
@@ -76,30 +84,31 @@ public class Sprite extends Rectangle2D.Double
 			g.rect((float)x,(float)y,(float)width,(float)height);
 		}
 	}
+	
 	/**
-	 * Moves sprite up
+	 * Moves sprite up by 15
 	 */
 	public void up() {
 		moveByAmount(0, -15);
 		applyWindowLimits(2000, 2000);
 	}
 	/**
-	 * Moves sprite down
+	 * Moves sprite down by 15
 	 */
 	public void down() {
 		moveByAmount(0, 15);
 		applyWindowLimits(2000, 2000);
 	}
 	/**
-	 * moves sprite to the write
+	 * Moves sprite to the right by 15
 	 */
 	public void right() {
 		moveByAmount(15, 0);
 		applyWindowLimits(2000, 2000);
 	}
-/**
- * moves sprite to the left
- */
+	/**
+	 * Moves sprite to the left by 15
+	 */
 	public void left() {
 		moveByAmount(-15, 0);
 		applyWindowLimits(2000, 2000);
@@ -112,30 +121,35 @@ public class Sprite extends Rectangle2D.Double
 	{
 		health=h;
 	}
-/**
- * Special move of the sprite; invisiblity. Changes the sprite's image to an "invisible" version
- * @param surface
- */
+	/**
+	 * Special move of the sprite; invisiblity. Changes the sprite's image to an "invisible" version, where other Sprites can't attack it.
+	 * @param surface - The Processing PApplet on which to draw the Sprite.
+	 */
 	public void special(PApplet surface) {
 		image = surface.loadImage(specialImgName);
 		invis = true;
 	}
 	/**
-	 * gets x value
+	 * gets x value of Sprite
 	 * @return - x: x-value
 	 */
 	public double getX() {
 		return x;
 	}
 	/**
-	 * gets y value
+	 * gets y value of Sprite
 	 * @return - y: y-value
 	 */
 	public double getY() {
 		return y;
 	}
 	/**
-	 * Method for sprite attacks
+	 * Method for sprite attacks, where this Sprite deals a random amount of damage to the other Sprite from 1-10.
+	 * If the other sprite is a Weapon, the weapon is transported into the hands of this Sprite and the Sprite can fire one laser shot.
+	 * If the other sprite is a HealthBoost, this Sprite gains 50 health.
+	 * 
+	 * @post Other sprite changes image. 
+	 * @post This sprite gains health or hasW turns to true.
 	 * @param other - the sprite that is being attacked
 	 */
 	public void attack(Sprite other) 
@@ -175,10 +189,16 @@ public class Sprite extends Rectangle2D.Double
 		return invis;
 	}
 	
+	/**
+	 * 
+	 * @return - returns true if the sprite has a weapon that can be fired
+	 */
 	public boolean getW() {
 		return this.hasW;
 	}
-	
+	/**
+	 * @param w - sets hasW to true if the weapon has been acquired by this Sprite and sets to false if weapon has been fired
+	 */
 	public void setW(boolean w) {
 		this.hasW = w;
 	}
