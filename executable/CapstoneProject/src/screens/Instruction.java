@@ -21,14 +21,14 @@ public class Instruction extends Screen {
 		super(800,600);
 		this.surface = surface;
 
-		button = new Rectangle(200, 450, 300,100);
+		button = new Rectangle(200, 475, 300,100);
 	}
 	/**
 	 * Displays the instructions screen
 	 */
 	public void draw() {
 		PImage img;
-		img = surface.loadImage("image/Instruction.jpg");
+		img = surface.loadImage("image/Instruc.jpg");
 		img.resize(surface.width,surface.height);
 		surface.background(img);
 		surface.fill(255, 0, 0);
@@ -36,7 +36,7 @@ public class Instruction extends Screen {
 		String str = "PLAY NOW";
 		surface.textSize(50);
 		surface.fill(255);
-		surface.text(str, 225, 450 + 60);
+		surface.text(str, 225, 450 + 60 + 25);
 	}
 
 
