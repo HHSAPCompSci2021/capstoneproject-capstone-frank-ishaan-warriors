@@ -4,9 +4,10 @@ import java.awt.Rectangle;
 import main.DrawingSurface;
 import processing.core.PImage;
 /**
+ * The instructions screen. Shown after the starting screen
  * 
  * @author Frank An
- *@version 03
+ *@version 05/23/22
  */
 public class Instruction extends Screen {
 	private DrawingSurface surface;

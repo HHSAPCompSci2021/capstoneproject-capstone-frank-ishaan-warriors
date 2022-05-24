@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 import main.DrawingSurface;
 import processing.core.PImage;
 /**
- * 
+ * This is the first screen that is shown to the users when they run the game. 
  * @author Frank An and Ishaan Musunuri
  * @version 5/17/22
  * 

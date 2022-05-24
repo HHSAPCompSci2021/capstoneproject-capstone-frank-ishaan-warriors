@@ -4,7 +4,7 @@ import processing.core.PImage;
 import characters.*;
 import java.awt.event.KeyEvent;
 /**
- * Map where both character have the battle
+ * Map where both character have the battle. After one of the characters reach 0 health, then the end screen will be showed. 
  * @author Ishaan Musunuri and Frank An
  * version 05/23/21
  *

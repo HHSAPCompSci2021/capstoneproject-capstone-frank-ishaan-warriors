@@ -1,6 +1,6 @@
 package screens;
  /**
-  * 
+  * Represents the screens that are used in the game. Screens are the different windows that are displayed in the game.  
   * @author Ishaan Musunuri
   *@version 05/11/22
   */

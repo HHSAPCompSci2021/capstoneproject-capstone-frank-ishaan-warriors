@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import main.DrawingSurface;
 import processing.core.PImage;
 /**
+ * End screen of the game. Shown after one of the users has 0 health. There will be a play again button on the bottom of the screen. 
  * 
  * @author Frank An
  *@version 5/23/22
