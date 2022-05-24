@@ -4,7 +4,11 @@ import java.awt.geom.Rectangle2D;
 
 import processing.core.PApplet;
 import processing.core.PImage;
-
+/**
+ * 
+ * @author Ishaan Musunuri and Frank An
+ * @version 05/21/22
+ */
 public class Sprite extends Rectangle2D.Double
 {
 	private PImage image;
