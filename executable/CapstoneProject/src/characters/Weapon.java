@@ -25,7 +25,7 @@ public class Weapon extends Sprite {
 	 */
 	public Weapon(PImage img, int x, int y, int health) {
 		super(img, x, y, 100,75, health);
-	}
+	} 
 
 	// METHODS
 	/**
