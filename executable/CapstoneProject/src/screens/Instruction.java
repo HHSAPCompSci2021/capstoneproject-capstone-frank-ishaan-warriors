@@ -12,7 +12,10 @@ public class Instruction extends Screen {
 	private DrawingSurface surface;
 	
 	private Rectangle button;
-
+/**
+ * Initializes a new screen
+ * @param surface -  The Processing PApplet on which to draw the Sprite.
+ */
 	public Instruction(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -20,7 +23,7 @@ public class Instruction extends Screen {
 		button = new Rectangle(200, 450, 300,100);
 	}
 	/**
-	 * Displays the instructions sheets
+	 * Displays the instructions screen
 	 */
 	public void draw() {
 		PImage img;

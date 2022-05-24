@@ -13,7 +13,11 @@ public class EndScreen extends Screen {
 	
 	private Rectangle button;
 	private boolean win;
-
+/**
+		 * Initializes a screen with the dimensions 2000x2000
+		 * @param surface The Processing PApplet on which to draw the Sprite.
+		 * @param win - if Mario wins, win is true. If Bob wins, win is false
+		 */
 	public EndScreen(DrawingSurface surface, boolean win) {
 		super(800,600);
 		this.surface = surface;
@@ -49,7 +53,7 @@ public class EndScreen extends Screen {
 		}
 	}
 	/**
-	 * 
+	 * When the 
 	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
