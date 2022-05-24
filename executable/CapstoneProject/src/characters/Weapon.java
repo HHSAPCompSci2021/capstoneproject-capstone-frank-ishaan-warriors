@@ -5,22 +5,35 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import franklin.shapes.*;
 /**
+ * The Weapon class represents a laser gun that is a Sprite and Mario and Bobs can fire the Sprite once they pick it up as a special ability for a one time use
+ * that deals 200 damage at once on the other Sprite. It spawns in when a Mario or Bob has less than 500 health and can shoot.
+ * 
  * @version 05/21/22
  * @author Frank An
  *
  */
 public class Weapon extends Sprite {
-
+	
+	
+	/**
+	 * Initializes a Weapon with a given PImage (img), given center (x,y) and health.
+	 * 
+	 * @param img PImage that is drawn onto the DrawingSurface of the game that represents the Weapon.
+	 * @param x X-coordinate of top left center.
+	 * @param y Y-coordinate of top left center.
+	 * @param health health of the Weapon.
+	 */
 	public Weapon(PImage img, int x, int y, int health) {
 		super(img, x, y, 100,75, health);
 	}
 
 	// METHODS
 	/**
-	 * Displays a laser that comes out of the weapon.laser does 200 damage to the character it's being shot at. 
+	 * Displays a laser that comes out of the weapon.laser does 200 damage to the character it's being shot at.
+	 *  
 	 * @param surface
 	 * @param mx - x coordinate of the mouse click on the screen
-	 * @param my
+	 * @param my - y coordinate of the mouse click on the screen 
 	 * @param l  - character that is shooting
 	 * @param t - character that is being shot at
 	 */

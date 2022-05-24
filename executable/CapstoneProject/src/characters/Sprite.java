@@ -21,10 +21,30 @@ public class Sprite extends Rectangle2D.Double
 	
 	// CONSTRUCTORS
 	
+	/**
+	 * Initializes a Sprite with no PImage (img), given center (x,y), width, height and health.
+	 * 
+	 * @param x X-coordinate of top left center.
+	 * @param y Y-coordinate of top left center.
+	 * @param w width of the Sprite
+	 * @param h height of the Sprite
+	 * @param health health of the Mario.
+	 */
 	public Sprite(int x, int y, int w, int h, int health) {
 		this(null, x, y, w, h, health);
 	}
 	
+	/**
+	 * Initializes a Sprite with a given PImage (img), given center (x,y), width, height and health.
+	 * 
+	 * @param img PImage that is drawn onto the DrawingSurface of the game that represents the Mario.
+	 * @param x X-coordinate of top left center.
+	 * @param y Y-coordinate of top left center.
+	 * @param w width of the Sprite
+	 * @param h height of the Sprite
+	 * @param health health of the Mario.
+	 * @post invis, hasW, and weaponUsed are set to false
+	 */
 	public Sprite(PImage img, int x, int y, int w, int h, int health) {
 		super(x,y,w,h);
 		image = img;

@@ -19,9 +19,16 @@ public class Bob extends Sprite {
 
 	public static final int BOB_WIDTH = 250;
 	public static final int BOB_HEIGHT = 300;
-
 	private double xVel, yVel;
-
+	
+	/**
+	 * Initializes a Bob with a given PImage (img), given center (x,y) and health.
+	 * 
+	 * @param img PImage that is drawn onto the DrawingSurface of the game that represents the Bob.
+	 * @param x X-coordinate of top left center.
+	 * @param y Y-coordinate of top left center.
+	 * @param health health of the Bob.
+	 */
 	public Bob(PImage img, int x, int y, int health) {
 		super(img, x, y, BOB_WIDTH, BOB_HEIGHT, health);
 		xVel = 0;

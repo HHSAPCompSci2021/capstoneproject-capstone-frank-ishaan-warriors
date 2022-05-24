@@ -19,7 +19,15 @@ public class Mario extends Sprite {
 	public static final int MARIO_HEIGHT = 300;
 
 	private double xVel, yVel;
-
+	
+	/**
+	 * Initializes a Mario with a given PImage (img), given center (x,y) and health.
+	 * 
+	 * @param img PImage that is drawn onto the DrawingSurface of the game that represents the Mario.
+	 * @param x X-coordinate of top left center.
+	 * @param y Y-coordinate of top left center.
+	 * @param health health of the Mario.
+	 */
 	public Mario(PImage img, int x, int y, int health) {
 		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT, health);
 		xVel = 0;
