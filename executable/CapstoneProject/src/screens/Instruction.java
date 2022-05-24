@@ -19,7 +19,9 @@ public class Instruction extends Screen {
 
 		button = new Rectangle(200, 450, 300,100);
 	}
-
+	/**
+	 * Displays the instructions sheets
+	 */
 	public void draw() {
 		PImage img;
 		img = surface.loadImage("image/Instruction.jpg");
@@ -35,7 +37,9 @@ public class Instruction extends Screen {
 
 
 
-	
+	/**
+	 * When the Play Now button is pressed, the game will begin.
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))

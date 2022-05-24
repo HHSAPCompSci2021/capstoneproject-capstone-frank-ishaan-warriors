@@ -6,7 +6,7 @@ import processing.core.PImage;
 /**
  * 
  * @author Frank An
- *@version 5/19/22
+ *@version 5/23/22
  */
 public class EndScreen extends Screen {
 	private DrawingSurface surface;
@@ -48,7 +48,9 @@ public class EndScreen extends Screen {
 			surface.text(str, button.x, button.y + button.height/2);
 		}
 	}
-	
+	/**
+	 * 
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))

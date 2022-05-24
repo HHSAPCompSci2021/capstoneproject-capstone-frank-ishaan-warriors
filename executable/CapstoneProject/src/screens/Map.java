@@ -4,9 +4,9 @@ import processing.core.PImage;
 import characters.*;
 import java.awt.event.KeyEvent;
 /**
- * 
+ * Map where both character have the battle
  * @author Ishaan Musunuri and Frank An
- * version 05/20/21
+ * version 05/23/21
  *
  */
 public class Map extends Screen
@@ -24,50 +24,86 @@ public class Map extends Screen
 		private HealthBoost d3;
 		private int bobHurt = 0, marioHurt = 0;
 		private boolean bobRed = false, marioRed = false;	
-		
+		/**
+		 * Initializes a screen with the dimensions 2000x2000
+		 * @param surface The Processing PApplet on which to draw the Sprite.
+		 */
 		public Map(DrawingSurface surface) {
 			super(2000, 2000);
 			this.surface = surface;
 		}
-		
+		/**
+		 * Spawns a Bob onto the screen
+		 * @param x - x-coordinate of the Bob
+		 * @param y - y-coordinate of the Bob
+		 * @param h - health of the Bob
+		 */
 		private void spawnNewBob(int x, int y, int h) 
 		{
 			b = new Bob(surface.loadImage("image/bobFight.png"),x,y,h);
 		}
-		
+		/**
+		 * Spawns a new Bob onto the screen
+		 * @param x - x-coordinate of the Bob
+		 * @param y - y-coordinate of the Bob
+		 * @param h - health of the Bob
+		 * @param img - image that represents the Bob
+		 */
 		private void spawnNewBob(int x, int y, int h,String img) 
 		{
 			b = new Bob(surface.loadImage(img),x,y,h);
 		}
 		
+/**
+		 * Spawns a Mario onto the screen
+		 * @param x - x-coordinate of the Mario
+		 * @param y - y-coordinate of the Mario
+		 * @param h - health of the Mario
+		 		 */
 		private void spawnNewMario(int x, int y, int h) 
 		{
 			a = new Mario(surface.loadImage("image/marioFight.png"),x,y, h);
 		}
-		
+		/**
+/**
+		 * Spawns a Mario onto the screen
+		 * @param x - x-coordinate of the Mario
+		 * @param y - y-coordinate of the Mario
+		 * @param h - health of the Mario
+		 * @param img - image that represents the Mario
+		 */
 		private void spawnNewMario(int x, int y, int h,String img) 
 		{
 			a = new Mario(surface.loadImage(img),x,y,h);
 		}
+		/**
+		 * Spawns a new weapon at coordinates (x,y)
+		 * @param x
+		 * @param y
+		 */
 		private void spawnWeapon(int x, int y) {
 			c = new Weapon(surface.loadImage("image/taswer.png"), x, y, 1000);
 		}
+		/**
+		 * Spawns a health boost
+		 */
 		private void spawnNewHealth() {
 			d = new HealthBoost(surface.loadImage("image/health2.PNG"), 200 + (int)(Math.random() * 1600), 200 +(int)(Math.random() * 1600), 1000);
 		}
 
-		// The statements in the setup() function 
-		// execute once when the program begins
+		/** The statements in the setup() function 
+		 execute once when the program begins**/
 		public void setup() 
 		{
 			spawnNewMario(500, 250, 1000,"image/marioIdle.png");
 			spawnNewBob(100, 250, 1000,"image/marioIdle.png");
 		}
 
-		// The statements in draw() are executed until the 
-		// program is stopped. Each statement is executed in 
-		// sequence and after the last line is read, the first 
-		// line is executed again.
+		/** The statements in draw() are executed until the program is stopped. Each statement is executed in 
+		sequence and after the last line is read, the first 
+		 line is executed again.
+		 *
+		 */
 		public void draw() {
 			PImage img;
 			img = surface.loadImage("image/ab.jpg");

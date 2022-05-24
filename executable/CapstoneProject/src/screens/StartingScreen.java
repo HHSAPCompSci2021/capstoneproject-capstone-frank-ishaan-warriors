@@ -21,7 +21,7 @@ public class StartingScreen extends Screen {
 
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 	}
-
+	
 	public void draw() {
 		PImage img;
 		img = surface.loadImage("image/warriorgame.jpg");
@@ -42,7 +42,9 @@ public class StartingScreen extends Screen {
 
 
 
-	
+	/**
+	 * 
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))
