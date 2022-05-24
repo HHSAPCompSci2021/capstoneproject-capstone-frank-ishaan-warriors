@@ -14,14 +14,19 @@ public class StartingScreen extends Screen {
 	private DrawingSurface surface;
 	
 	private Rectangle button;
-
+	/**
+	 * Initializes a new screen
+	 * @param surface -  The Processing PApplet on which to draw the Sprite.
+	 */
 	public StartingScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
 
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 	}
-
+	/**
+	 * Displays the starting screen of the program
+	 */
 	public void draw() {
 		PImage img;
 		img = surface.loadImage("image/warriorgame.jpg");
@@ -42,7 +47,9 @@ public class StartingScreen extends Screen {
 
 
 
-	
+	/**
+	 * When the 2 Player Mode button is pressed, then the instructions screen will appear
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))

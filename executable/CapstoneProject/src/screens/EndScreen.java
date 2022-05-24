@@ -6,14 +6,18 @@ import processing.core.PImage;
 /**
  * 
  * @author Frank An
- *@version 5/19/22
+ *@version 5/23/22
  */
 public class EndScreen extends Screen {
 	private DrawingSurface surface;
 	
 	private Rectangle button;
 	private boolean win;
-
+/**
+		 * Initializes a screen with the dimensions 2000x2000
+		 * @param surface The Processing PApplet on which to draw the Sprite.
+		 * @param win - if Mario wins, win is true. If Bob wins, win is false
+		 */
 	public EndScreen(DrawingSurface surface, boolean win) {
 		super(800,600);
 		this.surface = surface;
@@ -48,7 +52,9 @@ public class EndScreen extends Screen {
 			surface.text(str, button.x, button.y + button.height/2);
 		}
 	}
-	
+	/**
+	 * When the 
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))
